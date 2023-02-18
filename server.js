@@ -1,4 +1,6 @@
 const express = require('express');
+const TreeNode = require('./tree-node');
+
 const app = express();
 
 const port = process.env.PORT || 8080;

@@ -1,5 +1,5 @@
 const express = require('express');
-const TreeNode = require('./tree-node');
+const TreeNode = require('Models/TreeNode');
 
 const app = express();
 

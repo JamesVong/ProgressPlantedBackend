@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 let info = [
     {"id": 1, "name": "John", "age": 20},
@@ -16,5 +16,7 @@ app.get("/info/:num", (req, res) => {
     res.json(info[req.params.num - 1]);
 })
 
-app.listen()
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+})
 

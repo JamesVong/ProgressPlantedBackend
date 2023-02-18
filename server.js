@@ -16,7 +16,5 @@ app.get("/info/:num", (req, res) => {
     res.json(info[req.params.num - 1]);
 })
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-})
+app.listen()
 

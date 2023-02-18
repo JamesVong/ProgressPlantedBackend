@@ -1,5 +1,5 @@
 
-export class TreeNode {
+class TreeNode {
     constructor(id, title, description, dueDate, progressStatus) {
         this.id = id;
         this.title = title;
@@ -18,4 +18,4 @@ export class TreeNode {
     }
 }
 
-
+module.exports = TreeNode;

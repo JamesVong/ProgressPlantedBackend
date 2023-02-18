@@ -1,4 +1,6 @@
 const express = require('express');
+const TreeNode = require('./Models/TreeNode');
+
 const app = express();
 const graphs =require("./routes/growthgraph");
 const port = process.env.PORT || 8080;

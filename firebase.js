@@ -1,19 +1,11 @@
-// Import the functions you need from the SDKs you need
-const {initializeApp,applicationDefault} = require("firebase-admin/app");
 
+var admin = require("firebase-admin");
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+var serviceAccount = require("./progressplanted-firebase-adminsdk-964z8-16de8d067a.json");
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    credential: applicationDefault(),
-    databaseURL:"https://progressplanted-default-rtdb.firebaseio.com/",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-module.exports = app;
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://progressplanted-default-rtdb.firebaseio.com"
+});
+module.exports=admin;
 

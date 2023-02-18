@@ -1,10 +1,12 @@
 const express = require('express');
-const TreeNode = require('./Models/TreeNode');
+
 
 const app = express();
-const graphs =require("./routes/growthgraph");
+const graphs =require("./Routes/growthgraph");
 const port = process.env.PORT || 8080;
+const bodyParser =require('body-parser');
 
+app.use(bodyParser.json());
 let info = [
     {"id": 1, "name": "John", "age": 20},
     {"id": 2, "name": "Jane", "age": 21}

@@ -56,7 +56,7 @@ router.get("/directory",(req,res)=>{
 router.post("/newdoc", (req,res)=>{
     let title =req.body.title;
     let ref = db.ref(`graphs/${title}`);
-    ref.once("value",(snap)=>{
+    ref.once("value", (snap)=>{
         if(snap.exists()){
             res.status(200).json({error:"file exists"})
         }

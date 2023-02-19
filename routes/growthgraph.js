@@ -6,10 +6,7 @@ const admin = require("../firebase");
 //server stuff
 const express=require("express");
 
-//models
-//const TreeNode = require('../Models/TreeNode');
-
-const router =express.Router();
+const router = express.Router();
 const db = admin.database();
 
 
@@ -54,7 +51,7 @@ router.get("/directory",(req,res)=>{
  * Creates new doc
  *
  * @param {str}  title title of new graph.
- * @return {JSONObject} object of all the types of C02 usage.
+ * @return {JSONObject} object of all the types of usage.
  */
 router.post("/newdoc", (req,res)=>{
     let title =req.body.title;

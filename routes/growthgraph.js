@@ -83,9 +83,11 @@ router.post("/update", (req,res)=>{
 
 router.delete("/delete", (req, res)=>{
     let title = req.query.title;
-    const ref = db.ref(`graphs/${req.body.title}`);
-    ref.remove()
-        .then(()=>res.status(200).json("Received"));
+    const ref = db.ref(`graphs/${title}`);
+    ref.remove().then((resp)=>res.status(200).json("Recieved"))
+    .catch(function(error) {
+        console.log("Remove failed: " + error.message)
+    });
     
 })
 

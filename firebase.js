@@ -2,6 +2,7 @@
 var admin = require("firebase-admin");
 require('dotenv').config();
 var serviceAccount;//= require("./progressplanted-firebase-adminsdk-964z8-16de8d067a.json");
+console.log(process.env);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount || 

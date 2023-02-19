@@ -64,8 +64,8 @@ router.post("/newdoc", (req,res)=>{
             res.status(200).json({error:"file exists"})
         }
         else{
-            db.ref('graphs').update({[title]:{title:title}});
-            res.status(200).json("Rescieved");
+            db.ref('graphs').update({[title]: {title:title}});
+            res.status(200).json("Received");
         }
     })
 
@@ -76,16 +76,19 @@ router.post("/newdoc", (req,res)=>{
  * Updates the contents of a graph.
  * 
  * @param {obj}  title  which graph to update.
- * @return {obj} object of all the types of C02 usage.
+ * @return {obj} object of all the types of usage.
  */
 router.post("/update", (req,res)=>{
     const ref = db.ref(`graphs/${req.body.title}`);
     ref.update(req.body);
-    res.status(200).json("Rescieved");
+    res.status(200).json("Received");
 })
 
+router.delete("/delete", (req, res)=>{
+    let title = req.query.title;
+    const ref = db.ref(`graphs/${req.body.title}`);
+    ref.delete(title);
+    res.status(200).json("Received");
+})
 
-
-
-
-module.exports=router;
+module.exports = router;

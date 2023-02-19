@@ -2,8 +2,6 @@
 var admin = require("firebase-admin");
 require('dotenv').config();
 
-
-
 admin.initializeApp({
   credential: admin.credential.cert(
     {
@@ -20,5 +18,6 @@ admin.initializeApp({
     }),
   databaseURL: "https://progressplanted-default-rtdb.firebaseio.com"
 });
-module.exports=admin;
+
+module.exports = admin;
 

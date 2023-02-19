@@ -87,8 +87,9 @@ router.post("/update", (req,res)=>{
 router.delete("/delete", (req, res)=>{
     let title = req.query.title;
     const ref = db.ref(`graphs/${req.body.title}`);
-    ref.delete(title);
-    res.status(200).json("Received");
+    ref.remove()
+        .then(()=>res.status(200).json("Received"));
+    
 })
 
 module.exports = router;

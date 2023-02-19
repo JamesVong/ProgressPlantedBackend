@@ -34,6 +34,19 @@ router.get("/graph", (req,res)=>{
         res.status(400).json({"error":errorObject});
       }); 
 })
+router.get("/directory",(req,res)=>{
+    let user =req.query.uid;
+    const ref =db.ref(`graphs`);
+    ref.once('value',(snap)=>{
+        if(snap.exists()){
+            res.status(200).json(Object.keys(snap.val()));    
+        }else{
+            res.status(400).json("Empty Directory");
+        }
+    }, (errorObject) => {
+        res.status(400).json({"error":errorObject});
+    });
+});
 
 
 /**
@@ -70,6 +83,8 @@ router.post("/update", (req,res)=>{
     ref.update(req.body);
     res.status(200).json("Rescieved");
 })
+
+
 
 
 

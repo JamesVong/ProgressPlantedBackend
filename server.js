@@ -9,7 +9,7 @@ const bodyParser =require('body-parser');
 
 app.use(bodyParser.json());
 
-app.use('/users',graphs);
+app.use('/graphs',graphs);
 
 app.get("/", (req, res) => {
     res.send("Testing JavaScript!");
